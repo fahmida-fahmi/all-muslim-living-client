@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* html {
+    overflow-y: scroll; 
+} */
+
+  
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.my-confirm-btn {
+    background-color: #3085d6 !important;
+    color: white !important;
+}
+
+.my-cancel-btn {
+    background-color: #d33202 !important;
+    color: white !important;
+}
+
+.my-confirm-btn {
+    background-color: #28a745 !important;
+    /* green success tone */
+    color: white !important;
+}
+
+button{
+    background-color: inherit;
+}
+
+.MuiTypography-root .MuiTypography-h6 .css-1t2rogw-MuiTypography-root .css-1r5xfln { /* This class might vary, inspect your logo wrapper */
+    display: none !important;
+  }
+
