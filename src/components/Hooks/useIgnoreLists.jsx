@@ -1,4 +1,3 @@
-import { useEffect, useState, useCallback } from 'react';
 import useAuth from './useAuth';
 import useAxiosCart from './useAxiosCart';
 import { useQuery } from '@tanstack/react-query';

@@ -1,12 +1,11 @@
 import React from 'react';
 import Swal from 'sweetalert2';
-import useFavLists from '../../Hooks/useFavLists';
 import useUsers from '../../Hooks/useUsers';
 import femalePic  from '../../../assets/Avater for Stattstics/female.jpg'
 import  malePic  from '../../../assets/Avater for Stattstics/male.png'
-import { FiDelete } from 'react-icons/fi';
-import { MdDelete, MdDeleteForever } from 'react-icons/md';
-import { RiDeleteBackLine } from 'react-icons/ri';
+// import { FiDelete } from 'react-icons/fi';
+// import { MdDelete, MdDeleteForever } from 'react-icons/md';
+// import { RiDeleteBackLine } from 'react-icons/ri';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IoOpenOutline } from 'react-icons/io5';
 import { Link, useNavigate } from 'react-router-dom';

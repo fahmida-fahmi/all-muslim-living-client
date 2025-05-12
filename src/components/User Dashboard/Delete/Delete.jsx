@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import useBiodatasInfo from '../../Hooks/useBioData';
 
 const Delete = () => {
@@ -6,6 +6,7 @@ const Delete = () => {
     const [biodatas] = useBiodatasInfo()
     const firstBiodata = biodatas || null;
     console.log(firstBiodata)
+    const id = biodatas?._id || null;
     if (firstBiodata!== null ) {
         // If biodatas is an array, get the first element
         const { _id } = biodatas;
@@ -14,12 +15,12 @@ const Delete = () => {
 
     
     // console.log(biodatas,_id);
-    const handleDelete = async (_id) => {
+    const handleDelete = async (id) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this biodata?");
       
         if (confirmDelete) {
           try {
-            const response = await fetch(`https://all-muslim-living-server.onrender.com/biodatas/${_id}`, {
+            const response = await fetch(`https://all-muslim-living-server.onrender.com/biodatas/${id}`, {
               method: 'DELETE',
             });
       
@@ -64,7 +65,7 @@ const Delete = () => {
                     </label>
                 </div>
                 <button
-                    onClick={() => handleDelete(_id)}
+                    onClick={() => handleDelete(id)}
                     className="w-48 py-3 rounded-full text-white font-medium bg-gradient-to-r from-purple-700 to-pink-500 shadow-lg hover:opacity-90 transition"
                 >
                     Delete Biodata

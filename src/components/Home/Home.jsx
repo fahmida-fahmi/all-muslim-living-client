@@ -3,8 +3,9 @@ import SearchBioDataForm from '../Search Form/SearchBioDataForm';
 import CreateBioData from '../CreateBioData/CreateBioData';
 import UserStatistics from '../Statistics/UserStatistics';
 import MuslimLifeSection from '../HowItWorksSection/HowItWorksSection';
-import Banner from './banner';
+
 import img1 from '../../assets/banner bg imgs/img7.jpg'; // 🔁 Use your image path here
+import Banner from './Banner';
 
 const Home = () => {
     return (

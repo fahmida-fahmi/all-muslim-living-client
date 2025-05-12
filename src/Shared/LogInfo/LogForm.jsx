@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
 import Swal from "sweetalert2";
 import { HiPlus } from "react-icons/hi";
-import { getAuth, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { getAuth, updateProfile } from 'firebase/auth';
 import axios from 'axios';
 import app from "../../../firebaseConfig";
 
@@ -49,11 +49,11 @@ console.log(from)
   };
 
 
-const handleLogin = async (email, password) => {
+const handleLogin = async (email) => {
   try {
     // Step 1: Log in the user with Firebase
-    const result = await signInWithEmailAndPassword(auth, email, password);
-    const loggedInUser = result.user;
+    // const result = await signInWithEmailAndPassword(auth, email, password);
+    // const loggedInUser = result.user;
 
     // Step 2: Fetch user data from your backend
     const response = await axios.get(`https://all-muslim-living-server.onrender.com/users/${email}`);

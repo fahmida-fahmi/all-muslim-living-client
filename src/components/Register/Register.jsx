@@ -23,7 +23,7 @@ export default function Register() {
 
   const onSubmit = (data) => {
     const { name, gender, email, password } = data;
-    const userInfo = { name, email, gender,password, role: "user" };
+    // const userInfo = { name, email, gender,password, role: "user" };
 
     registerUser(email, password)
   .then((result) => {
