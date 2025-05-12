@@ -4,7 +4,7 @@ import cocoLeaf from '../../assets/banner bg imgs/coconut leaf.png';
 import ConfettiBackground from '../../Shared/Confetti/ConfettiBackground';
 import EnvelopeCard from './EnvelopeCard';
 import { useIsClient } from '../Hooks/useIsClient';
-import img1 from '../../assets/banner bg imgs/img7.jpg'; // 🔁 Use your image path here
+// import img1 from '../../assets/banner bg imgs/img7.jpg'; // 🔁 Use your image path here
 
 
 
@@ -28,7 +28,9 @@ const Banner  = () => {
 
             {/* <img src={cocoLeaf} className='absolute top-20 rotate-[315deg] w-[100px]' alt="" /> */}
             {/* <img src={cocoLeaf} className='absolute top-20 left-0 w-[100px]' alt="" /> */}
-            <div className={`absolute inset-0 bg-[url(${pumpLeaf})] bg-cover bg-center opacity-10`}></div>
+            <div className='absolute inset-0  bg-cover bg-center opacity-10'
+            style={{ backgroundImage: `url(${pumpLeaf})` }}
+            ></div>
 
             <div className="w-3/4 mx-auto py-30 flex flex-col justify-center items-center z-20">
                 <div className="lg:text-[70px] md:text-5xl font-bold text-emerald-700 mt-20 mb-8 text-center z-200 text-2xl md:text-[100px] hidden md:block">
