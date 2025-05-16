@@ -35,3 +35,7 @@ button{
     display: none !important;
   }
 
+.css-s2vjmu > div{
+    width: 100% !important;
+    background: #f8fff3;
+}

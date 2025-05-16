@@ -82,7 +82,7 @@ const NAVIGATION = [
 
   },
   {
-    segment: 'home',
+    // segment: '',
     title: 'Back To Home',
     icon: <HomeSharpIcon />,
     path: '/',

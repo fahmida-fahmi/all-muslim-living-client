@@ -1,5 +1,5 @@
 import React from 'react';
-import pumpLeaf from '../../assets/banner bg imgs/pump leaf.png';
+// import pumpLeaf from '../../assets/banner bg imgs/pump leaf.png';
 import cocoLeaf from '../../assets/banner bg imgs/coconut leaf.png';
 import ConfettiBackground from '../../Shared/Confetti/ConfettiBackground';
 import EnvelopeCard from './EnvelopeCard';
@@ -29,7 +29,7 @@ const Banner  = () => {
             {/* <img src={cocoLeaf} className='absolute top-20 rotate-[315deg] w-[100px]' alt="" /> */}
             {/* <img src={cocoLeaf} className='absolute top-20 left-0 w-[100px]' alt="" /> */}
             <div className='absolute inset-0  bg-cover bg-center opacity-10'
-            style={{ backgroundImage: `url(${pumpLeaf})` }}
+            // style={{ backgroundImage: `url(${pumpLeaf})` }}
             ></div>
 
             <div className="w-3/4 mx-auto py-30 flex flex-col justify-center items-center z-20">

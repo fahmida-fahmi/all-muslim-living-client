@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import React,  { useState } from 'react';
 import useBiodatasInfo from '../../Hooks/useBioData';
 
 const Delete = () => {

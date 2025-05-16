@@ -12,6 +12,7 @@ import { Bounce, toast, ToastContainer } from 'react-toastify';
 import useUsers from '../Hooks/useUsers';
 import { BiCopy } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const SidebarCard = ({ generalInfo, _id }) => {
@@ -23,8 +24,13 @@ const SidebarCard = ({ generalInfo, _id }) => {
     // function for handle fav list
     const handleFavList = () => {
         if (!userData || !userData.email) {
-            alert("Please log in first to add to favorites.");
-            // Optionally redirect to login page:
+            Swal.fire({
+                icon: 'warning',
+                title: 'Login Required',
+                text: 'Please log in first to add to favorites.',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK'
+            });            // Optionally redirect to login page:
             navigate('/login');
             return;
         }

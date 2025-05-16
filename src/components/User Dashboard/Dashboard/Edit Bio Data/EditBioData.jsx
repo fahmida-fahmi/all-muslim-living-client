@@ -18,6 +18,14 @@ import Contact from '../Contact/Contact';
 import { useState, useEffect } from 'react';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  width: '100%',
+  '& .MuiStepLabel-label': {
+    color: theme.palette.primary.main,
+  },
+}));
 
 export default function EditBioData() {
   const [activeStep, setActiveStep] = useState(0);
@@ -351,12 +359,13 @@ export default function EditBioData() {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTab = useMediaQuery(theme.breakpoints.down('lg'));
   return (
 
     <Box
       sx={{
         display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
+        flexDirection: isTab ? 'column' : 'row',
         width: isMobile ? '100%' : '80%',
         margin: 'auto',
       }}
@@ -364,28 +373,28 @@ export default function EditBioData() {
       {/* Stepper */}
       <Box
         sx={{
-          width: isMobile ? '100%' : '25%',
+          width: isTab ? '100%' : '25%',
           mt: isMobile ? 2 : 10,
           mb: isMobile ? 2 : 0,
           // overflowX: 'auto',      // Enables horizontal scroll if needed
-          whiteSpace: 'nowrap',   // Keeps step buttons in one line
+          whiteSpace: 'wrap',   // Keeps step buttons in one line
           maxWidth: '100%',
         }}
       >
         <Stepper
           nonLinear
           activeStep={activeStep}
-          orientation={isMobile ? 'horizontal' : 'vertical'}
+          orientation={isTab ? 'horizontal' : 'vertical'}
           sx={{
-        flexShrink: 0,
-        marginLeft: isMobile ? 2 : 2, // Adjust margin for mobile view
-      }}
+            flexShrink: 0,
+            marginLeft: isMobile ? 2 : 2, // Adjust margin for mobile view
+          }}
         >
           {combinedSteps.map((step, index) => (
             <Step key={index} completed={completed[index]} sx={{
-    px: 0, // padding-left and padding-right = 0
-  }}>
-              
+              px: 0, // padding-left and padding-right = 0
+            }}>
+
               <StepButton
                 color="inherit"
                 onClick={handleStep(index)}
@@ -393,7 +402,7 @@ export default function EditBioData() {
                   paddingRight: 0, // Adjust padding for different screen sizes          // Reduce padding (you can also use px, py, pt, pb
                 }}
               >
-                <Box sx={{ display: { xs: 'none', md: 'inline' } }}>
+                <Box sx={{ display: { xs: 'none', md: 'none', lg: 'inline' } }}>
                   {step.label}
                 </Box>
               </StepButton>
@@ -406,10 +415,10 @@ export default function EditBioData() {
       <Box
         sx={{
           flex: 1,
-          width: isMobile ? '100%' : 'auto',
+          width: isMobile ? 'full' : 'auto',
           display: 'flex',
           flexDirection: 'column',
-          padding: 2,
+          // padding: 2,
           overflowY: 'auto',
         }}
       >
@@ -426,7 +435,14 @@ export default function EditBioData() {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Box>{combinedSteps[activeStep].content}</Box>
+            <Box 
+            sx={{
+              pt: 5,
+            }}
+            
+            >
+              {combinedSteps[activeStep].content}
+              </Box>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Button disabled={activeStep === 0} onClick={handleBack} sx={{ mr: 1 }}>
                 Back

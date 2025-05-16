@@ -3,19 +3,17 @@ import { Box, Typography, Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import {  Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useIgnoreLists from '../../../Hooks/useIgnoreLists';
 import useFavLists from '../../../Hooks/useFavLists';
 
 const DashboardHome = () => {
+  const [ignoreLists] = useIgnoreLists();
+  const [favLists] = useFavLists();
+  const navigate = useNavigate();
 
-  const [ignoreLists] = useIgnoreLists()
-  const [favLists] = useFavLists()
-  const navigate = useNavigate()
-
-  console.log(ignoreLists.length)
-  const totalIgnoreBiodata = ignoreLists.length
-  const totalFavBiodata = favLists.length
+  const totalIgnoreBiodata = ignoreLists.length;
+  const totalFavBiodata = favLists.length;
 
   const topCards = [
     {
@@ -52,32 +50,31 @@ const DashboardHome = () => {
       value: totalFavBiodata,
       label: 'Fav List',
       description: 'All your Fav listed biodatas',
-      href: '/profile/favLists'
+      href: '/profile/favLists',
     },
     {
       icon: <HeartBrokenIcon sx={{ fontSize: 40, color: 'purple' }} />,
       value: totalIgnoreBiodata,
       label: 'Ignore List',
       description: 'All your Ignore listed biodatas',
-      href: '/profile/ignoreLists'
-
+      href: '/profile/ignoreLists',
     },
     {
       icon: <ShoppingBagOutlinedIcon sx={{ fontSize: 40, color: 'purple' }} />,
       value: '0',
       label: 'My Purchased',
       description: 'All your purchased history',
-      href: '/profile/myPurchased'
-
+      href: '/profile/myPurchased',
     },
   ];
 
   const cardStyle = {
-    width: { xs: '100%', sm: 'calc(33.33% - 20px)' },
+    flex: '1 1 calc(100% - 16px)',
+    minWidth: '280px',
+    maxWidth: '100%',
     backgroundColor: '#fff',
     borderRadius: 3,
     p: 3,
-    minHeight: 250,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -87,14 +84,14 @@ const DashboardHome = () => {
   };
 
   return (
-    <Box sx={{ p: 2, m: 8 }}>
+    <Box sx={{ p: { xs: 2, md: 4 } }}>
       {/* Top Cards */}
       <Box
         sx={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: 3,
-          justifyContent: 'space-between',
+          justifyContent: 'center',
         }}
       >
         {topCards.map((card, index) => (
@@ -102,9 +99,9 @@ const DashboardHome = () => {
             key={index}
             sx={{
               ...cardStyle,
+              flex: { xs: '1 1 100%', sm: '1 1 calc(50% - 24px)', md: '1 1 calc(33.33% - 24px)' },
               backgroundColor: card.backgroundColor,
               color: card.textColor || 'inherit',
-              alignItems: 'center',
             }}
           >
             <Typography variant="h4" color={card.textColor}>
@@ -118,7 +115,7 @@ const DashboardHome = () => {
             </Typography>
 
             {card.hasButtons ? (
-              <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+              <Box sx={{ display: 'flex', gap: 1, mt: 1, flexWrap: 'wrap' }}>
                 {['Last 30 Days', 'Last 7 Days', 'Today'].map((label) => (
                   <Button
                     key={label}
@@ -128,6 +125,7 @@ const DashboardHome = () => {
                       backgroundColor: '#4B187E',
                       color: '#fff',
                       textTransform: 'none',
+                      mt: 1,
                     }}
                   >
                     {label}
@@ -157,24 +155,22 @@ const DashboardHome = () => {
 
       {/* Bottom Cards */}
       <Box
-      // onClick={() => navigate(`${href}`)}
         sx={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: 3,
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           mt: 4,
-          cursor: 'pointer'
         }}
       >
         {bottomCards.map((card, index) => (
-          <Box 
-          key={index}
-          sx={cardStyle}
-      // to={card.href}
-      onClick={() => navigate(`${card.href}`)}
-
-          
+          <Box
+            key={index}
+            sx={{
+              ...cardStyle,
+              flex: { xs: '1 1 100%', sm: '1 1 calc(50% - 24px)', md: '1 1 calc(33.33% - 24px)' },
+            }}
+            onClick={() => navigate(card.href)}
           >
             {card.icon}
             <Typography variant="h6" mt={1}>
@@ -187,6 +183,7 @@ const DashboardHome = () => {
           </Box>
         ))}
       </Box>
+
     </Box>
   );
 };

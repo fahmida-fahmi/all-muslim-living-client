@@ -173,7 +173,7 @@ const SingleBioDataDetails = () => {
 
     return (
         <div>
-            <div className="w-3/4 mx-auto py-28 px-8 ">
+            <div className=" w-full md:w-3/4 md:mx-auto py-28 md:px-8 px-4 ">
                 <h1 className="text-2xl font-bold mb-8 capitalize">{contact.brideName}'s Biodata</h1>
                 <div className='md:grid md:grid-cols-3 gap-20 block'>
                     <div className=''>
